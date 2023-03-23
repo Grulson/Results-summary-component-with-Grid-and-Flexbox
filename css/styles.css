@@ -170,8 +170,7 @@ body {
   body {
     display: grid;
     place-items: center;
-    min-height: 100vh;
-    background: hsl(221, 100%, 96%);
+    height: 100vh;
   }
   .main-container {
     margin-inline: 1.6rem;
