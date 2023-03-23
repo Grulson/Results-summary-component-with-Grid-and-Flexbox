@@ -1,0 +1,253 @@
+@use './colors' as c;
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.main-container {
+	max-width: 736px;
+	display: grid;
+	background-color: c.$white;
+
+	.result-container {
+		text-align: center;
+		background: linear-gradient(
+			180deg,
+			c.$light_slate_blue_bg,
+			c.$light_royal_blue_bg
+		);
+		border-radius: 0 0 32px 32px;
+
+		.result-heading {
+			padding: 2.4rem 0;
+			color: c.$light_lavender;
+			font-size: 1.8rem;
+			font-weight: 700;
+		}
+
+		.circle-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 140px;
+			aspect-ratio: 1;
+			margin: 0 auto;
+			background: linear-gradient(
+				180deg,
+				hsla(256, 72%, 46%, 1),
+				hsla(241, 72%, 46%, 0)
+			);
+			border-radius: 50%;
+			opacity: 0.5;
+
+			.result-number {
+				color: c.$white;
+				font-size: 5.6rem;
+				font-weight: 800;
+			}
+
+			.result-area {
+				color: c.$light_lavender;
+				font-size: 1.6rem;
+				font-weight: 700;
+			}
+		}
+
+		.result-rate {
+			padding: 2.4rem 0 0.8rem 0;
+			color: c.$white;
+			font-size: 2.4rem;
+			font-weight: 700;
+		}
+
+		.result-text {
+			padding: 0 57px 40px;
+			color: c.$light_lavender;
+			font-size: 1.6rem;
+			font-weight: 500;
+		}
+	}
+
+	.summary-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 2.4rem 3rem 3rem 3rem;
+
+		.summary-heading {
+			color: c.$dark_gray_blue;
+			font-size: 1.8rem;
+			font-weight: 700;
+		}
+
+		.summary-boxes {
+			display: flex;
+			flex-direction: column;
+			margin: 2.4rem 0;
+
+			gap: 1.6rem;
+
+			.summary-box {
+				display: flex;
+				align-items: center;
+				height: 56px;
+				font-size: 1.5rem;
+				font-weight: 500;
+				border-radius: 12px;
+
+				img {
+					margin-left: 1.6rem;
+					margin-right: 1.2rem;
+				}
+
+				.summary-number {
+					margin-left: auto;
+					margin-right: 16px;
+					color: c.$dark_gray_blue;
+					font-weight: 700;
+					span {
+						opacity: 0.5;
+					}
+				}
+			}
+
+			.summary-box-reaction {
+				background: hsla(0, 100%, 67%, 0.05);
+
+				.summary-text {
+					color: c.$light_red;
+				}
+			}
+			.summary-box-memory {
+				background: hsla(39, 100%, 56%, 0.05);
+
+				.summary-text {
+					color: c.$orangey_yellow;
+				}
+			}
+			.summary-box-verbal {
+				background: hsla(166, 100%, 37%, 0.05);
+				.summary-text {
+					color: c.$green_teal;
+				}
+			}
+			.summary-box-visual {
+				background: hsla(234, 85%, 45%, 0.05);
+				.summary-text {
+					color: c.$cobalt_blue;
+				}
+			}
+		}
+
+		.btn-summary {
+			position: relative;
+			border: none;
+			background: c.$dark_gray_blue;
+			height: 56px;
+			border-radius: 128px;
+			color: c.$white;
+			font-size: 1.8rem;
+			font-weight: 700;
+			cursor: pointer;
+			z-index: 0;
+		}
+
+		.btn-summary::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(
+				180deg,
+				c.$light_slate_blue_bg,
+				c.$light_royal_blue_bg
+			);
+			border-radius: 128px;
+			transition: opacity 0.5s;
+			z-index: -1;
+			opacity: 0;
+		}
+	}
+}
+
+@media (min-width: 600px) {
+	body {
+		display: grid;
+		place-items: center;
+		min-height: 100vh;
+		background: c.$pale_blue;
+	}
+	.main-container {
+		margin-inline: 1.6rem;
+		grid-template-columns: repeat(2,1fr);
+		border-radius: 3.2rem;
+		box-shadow: 0px 3rem 6rem rgba(61, 108, 236, 0.15);
+
+		.result-container {			
+			border-radius: 32px;
+
+			.result-heading {
+				padding: 3.8rem 0 0;
+				font-size: 2.4rem;
+			}
+
+			.circle-container {
+				width: 200px;
+				opacity: 1;
+				margin-top: 3.5rem;
+
+				.result-number {
+					font-size: 7.2rem;
+				}
+
+				.result-area {
+					font-size: 1.8rem;
+					opacity: 0.5;
+				}
+			}
+
+			.result-rate {
+				padding: 2.8rem 0 1.4rem 0;
+				color: c.$white;
+				font-size: 3.2rem;
+			}
+
+			.result-text {
+				padding: 0 54px;
+				font-size: 1.8rem;
+			}
+		}
+
+		.summary-container {			
+			padding: 3.8rem 4rem 4.6rem;
+
+			.summary-heading {
+				font-size: 2.4rem;
+			}
+
+			.summary-boxes {
+				margin: 2.8rem 0 4.1rem;
+
+				.summary-box {
+					font-size: 1.8rem;
+				}
+			}
+
+			.btn-summary:hover::before {
+				opacity: 1;
+			}
+		}
+	}
+}
